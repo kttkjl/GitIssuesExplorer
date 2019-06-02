@@ -1,0 +1,32 @@
+.issuescontainer {
+  &-tag {
+    &-container {
+      display: flex;
+      flex-direction: row;
+      margin: 1rem;
+      button {
+        font-family: $font-light;
+        color: $primary-dark;
+        border-style: none;
+        background-color: transparent;
+        outline: none;
+      }
+      .activeButton {
+        color: $secondary;
+      }
+    }
+  }
+  &-issues {
+    &-container {
+      padding: 0 2.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+  }
+  &-closeButtonDiv {
+    display: flex;
+    margin: 1rem 3.5rem;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,61 @@
+.issuecard {
+  &-container {
+    flex-grow: 1;
+    height: 11rem;
+    width: 250px;
+    overflow: hidden;
+    margin: 1rem;
+    overflow-wrap: break-word;
+    -webkit-box-shadow: 15px 15px 60px -30px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 15px 15px 60px -30px rgba(0, 0, 0, 0.75);
+    box-shadow: 15px 15px 60px -30px rgba(0, 0, 0, 0.75);
+  }
+  &-header {
+    position: relative;
+    h2 {
+      font-family: $font-light;
+      color: $textbody;
+      overflow: hidden;
+      max-height: 3rem;
+    }
+    background-color: $primary;
+    padding: 1rem 1.5rem;
+    .status-icons {
+      padding: 0.1rem 0.1rem 0 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+  &-body {
+    p {
+      max-height: 3rem;
+      font-size: 0.75rem;
+      margin: 0.5rem;
+      overflow: hidden;
+    }
+  }
+  &-tags {
+    margin: 0 0.5rem 0.5rem;
+    font-size: 0.75rem;
+    max-height: 1rem;
+    &-tag {
+      font-size: 0.6rem;
+      background-color: $secondary;
+      color: $textbody;
+      margin: 0 0.2rem;
+      padding: 0.2rem;
+      border-radius: 0.25rem;
+      display: inline-flex;
+      align-items: center;
+    }
+    &-tag::before {
+      content: "\A";
+      width: 0.3rem;
+      height: 0.3rem;
+      margin: 0 0.15rem;
+      border-radius: 50%;
+      background: $textbody;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+.icon {
+  display: inline-block;
+  background-color: $neutral-light;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 1rem;
+  width: 1rem;
+}
+
+.icon-search {
+  // background-image: url("../assets/icons/search.svg");
+  -webkit-mask-image: url("../assets/icons/search.svg");
+  mask-image: url("../assets/icons/search.svg");
+}
+
+.icon-closeButton {
+  -webkit-mask-image: url("../assets/icons/close.svg");
+  mask-image: url("../assets/icons/close.svg");
+}
+
+.icon-issueClosed {
+  -webkit-mask-image: url("../assets/icons/issue-closed.svg");
+  mask-image: url("../assets/icons/issue-closed.svg");
+}
+
+.icon-pullRequest {
+  -webkit-mask-image: url("../assets/icons/pull-request.svg");
+  mask-image: url("../assets/icons/pull-request.svg");
+}
+
+.icon-sm {
+  height: 0.75rem;
+  width: 0.75rem;
+}
+
+.icon-lg {
+  height: 1.5rem;
+  width: 1.5rem;
+}
+
+.icon-dark {
+  background-color: $neutral-dark;
+}

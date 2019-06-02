@@ -1,0 +1,33 @@
+// Fonts
+@include font-face(
+  MontserratReg,
+  montserrat-regular,
+  "../assets/fonts/montserrat"
+);
+
+@include font-face(
+  MontserratBold,
+  montserrat-bold,
+  "../assets/fonts/montserrat"
+);
+
+@include font-face(
+  MontserratLight,
+  montserrat-light,
+  "../assets/fonts/montserrat"
+);
+
+// Variables
+$font-light: MontserratLight;
+$font-reg: MontserratReg;
+$font-bold: MontserratBold;
+
+// Colors
+$textbody: #ffffff;
+$primary: #3f51b5;
+$primary-dark: #1a237e;
+$secondary: #e91e63;
+$secondary-dark: #880e4f;
+$neutral-dark: #455a64;
+$neutral: #607d8b;
+$neutral-light: #cfd8cd;
