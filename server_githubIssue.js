@@ -7,11 +7,13 @@ const port = 3001;
 app.use(express.static(path.join(__dirname, "build")));
 app.use(express.static(path.join(__dirname, "public")));
 
-app.get("/GithubIssueExplorer", (req, res) => {
+app.get("*", (req, res) => {
+  console.log("githubissexp hit");
   res.sendFile(path.join(__dirname, "build", "index.html"));
   console.log(path.join(__dirname, "build", "index.html"));
 });
 
 app.listen(port, () => {
+  console.log(path.join(__dirname, "build", "index.html"));
   console.log(`GithubIssueExplorer app listening on port ${port}!`);
 });
