@@ -11,7 +11,7 @@ const propTypes = {
 const defaultProps = {};
 
 const Search = props => {
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState("");
   const [searchError, setSearchError] = useState(null);
   const inputElement = useRef(null);
 
