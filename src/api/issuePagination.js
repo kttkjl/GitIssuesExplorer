@@ -28,7 +28,14 @@ export const last20Issues = gql`
       ) {
         nodes {
           number
+          body: bodyText
           title
+          state
+          labels(first: 5) {
+            nodes {
+              name
+            }
+          }
         }
         pageInfo {
           endCursor

@@ -61,7 +61,8 @@ const IssuesContainer = props => {
         </button>
       </section>
       <section className="issuescontainer-issues-container">
-        {props.issues.map((issue, idx) => {
+        {/* {props.issues.map((issue, idx) => { */}
+        {props.data.nodes.map((issue, idx) => {
           if (issueType === issueTypes.ALL) {
             return <IssueCard key={idx} issue={issue} />;
           }
