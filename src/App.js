@@ -5,7 +5,7 @@ import Search from "./components/Search/Search";
 import IssuesContainer from "./containers/IssuesContainer";
 
 // GraphQL queries
-import { last20Issues } from "./api/issuePagination";
+import { last20Issues, last20each } from "./api/issuePagination";
 
 const App = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -19,27 +19,53 @@ const App = () => {
         activeSearch={activeSearch}
         setActiveSearch={setActiveSearch}
         setSearchParams={(owner, name) => {
-          setSearchParams({ owner, name });
+          let updatedValues = { owner, name };
+          setSearchParams(prev => {
+            return { ...prev, ...updatedValues };
+          });
         }}
       />
+      {/* {searchParams.owner + searchParams.name} */}
       {searchParams && searchParams.owner && searchParams.name ? (
         <Query
           notifyOnNetworkStatusChange={true}
-          query={last20Issues}
+          query={last20each}
           variables={{ owner: searchParams.owner, name: searchParams.name }}
         >
           {({ data, loading, error, fetchMore }) => {
             if (error) return <p>{error.message}</p>;
-            const search = data.search;
             return (
               <IssuesContainer
-                data={data && !loading ? data.repository.issues : null}
+                issues={
+                  !loading && data && data.repository.issues
+                    ? data.repository.issues.nodes
+                    : []
+                }
+                pullRequests={
+                  !loading && data && data.repository.pullRequests
+                    ? data.repository.pullRequests.nodes
+                    : []
+                }
                 loading={loading}
-                fetchMore={fetchMore}
-                searchRes={search}
-                issues={searchResults}
+                onLoadMore={() => {
+                  fetchMore({
+                    variables: {
+                      name: "name",
+                      owner: "owner",
+                      cursor: "cursor"
+                    },
+                    updateQuery: (prevRes, { fetchMoreResult }) => {
+                      if (!fetchMoreResult) return prevRes;
+                      return Object.assign({}, prevRes, {
+                        feed: [...prevRes.feed, ...fetchMoreResult.feed]
+                      });
+                    }
+                  });
+                }}
+                // issues={searchResults} //this is for API v3
                 reset={() => {
-                  setSearchResults([]);
+                  // setSearchResults([]);
+                  setSearchParams({ owner: "", name: "" });
                   setActiveSearch(true);
                 }}
               />

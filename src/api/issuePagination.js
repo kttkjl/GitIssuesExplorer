@@ -34,6 +34,61 @@ export const last20Issues = gql`
           labels(first: 5) {
             nodes {
               name
+              color
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+        }
+      }
+    }
+  }
+`;
+
+export const last20each = gql`
+  query last20each(
+    $owner: String!
+    $name: String!
+    $issue_cursor: String
+    $pr_cursor: String
+  ) {
+    repository(owner: $owner, name: $name) {
+      issues(
+        first: 20
+        after: $issue_cursor
+        orderBy: { field: CREATED_AT, direction: DESC }
+      ) {
+        nodes {
+          number
+          body: bodyText
+          title
+          state
+          labels(first: 5) {
+            nodes {
+              name
+              color
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+        }
+      }
+      pullRequests(
+        first: 20
+        after: $pr_cursor
+        orderBy: { field: CREATED_AT, direction: DESC }
+      ) {
+        nodes {
+          number
+          body: bodyText
+          title
+          state
+          labels(first: 5) {
+            nodes {
+              name
+              color
             }
           }
         }

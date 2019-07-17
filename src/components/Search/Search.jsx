@@ -59,6 +59,7 @@ const Search = props => {
       // Github v4 API calls - GraphQL
       const queryParams = massageIssuesUrl(inputElement.current.value);
       props.setSearchParams(queryParams.owner, queryParams.name);
+      props.setActiveSearch(false);
     } catch (e) {
       if (e.response && e.response.status === 404) {
         setSearchError("Github repo not found");
