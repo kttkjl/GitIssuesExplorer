@@ -10,7 +10,9 @@ const IssueCard = props => {
   return (
     <section className="issuecard-container">
       <section className="issuecard-header">
-        <h2>{props.issue.title}</h2>
+        <h2>
+          [{props.issue.number}] {props.issue.title}
+        </h2>
         <span className="issuecard-header status-icons">
           {props.issue.state.toLowerCase() === "closed" ? (
             <span className="icon icon-sm icon-issueClosed" />
@@ -24,7 +26,7 @@ const IssueCard = props => {
         <p>{props.issue.body}</p>
       </section>
       <section className="issuecard-tags">
-        {props.issue.labels.map((label, idx) => {
+        {props.issue.labels.nodes.map((label, idx) => {
           // console.log(tinycolor(label.color).isDark());
           return (
             <span

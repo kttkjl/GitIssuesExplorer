@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import PropTypes from "prop-types";
 import isUrl from "is-url";
-import axios from "axios";
+// import axios from "axios";
 
 const propTypes = {
   dataCallback: PropTypes.func,
@@ -11,7 +11,7 @@ const propTypes = {
 const defaultProps = {};
 
 const Search = props => {
-  const [page, setPage] = useState("");
+  // const [page, setPage] = useState("");
   const [searchError, setSearchError] = useState(null);
   const inputElement = useRef(null);
 

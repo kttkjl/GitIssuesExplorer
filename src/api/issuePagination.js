@@ -99,3 +99,59 @@ export const last20each = gql`
     }
   }
 `;
+
+export const getMoreIssues = gql`
+  query getMoreIssues($owner: String!, $name: String!, $cursor: String!) {
+    repository(owner: $owner, name: $name) {
+      issues(
+        first: 20
+        after: $cursor
+        orderBy: { field: CREATED_AT, direction: DESC }
+      ) {
+        nodes {
+          number
+          body: bodyText
+          title
+          state
+          labels(first: 5) {
+            nodes {
+              name
+              color
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+        }
+      }
+    }
+  }
+`;
+
+export const getMorePRs = gql`
+  query getMorePRs($owner: String!, $name: String!, $cursor: String!) {
+    repository(owner: $owner, name: $name) {
+      pullRequests(
+        first: 20
+        after: $cursor
+        orderBy: { field: CREATED_AT, direction: DESC }
+      ) {
+        nodes {
+          number
+          body: bodyText
+          title
+          state
+          labels(first: 5) {
+            nodes {
+              name
+              color
+            }
+          }
+        }
+        pageInfo {
+          endCursor
+        }
+      }
+    }
+  }
+`;
