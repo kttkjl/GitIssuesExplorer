@@ -9,6 +9,9 @@ Scroll to the bottom of the screen to load 20 more issues/PRs
 ## Screenshot
 ![alt text](https://i.imgur.com/3kZkUnq.png "Preview")
 
+## Live demo at:
+https://aws.koumakan.work/GithubIssueExplorer
+
 ## HOW TO RUN
 1. Clone the project
 2. `cd` into the project folder
