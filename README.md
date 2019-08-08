@@ -1,6 +1,10 @@
 # GITHUB ISSUES VIEWER
 
-Lets you search any github repository, and lists out the first 50 issues
+Uses Github V4 API, the one with graphQL
+
+Lets you search any github repository via URL, and lists out the first 20 issues, pull requests are separate
+
+Scroll to the bottom of the screen to load 20 more issues/PRs
 
 ## HOW TO RUN
 1. Clone the project
