@@ -20,10 +20,17 @@
     &-container {
       padding: 0 2.5rem;
       display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
+      flex-flow: row wrap;
+      justify-content: space-evenly;
+    }
+    &-container::after {
+      // display: flex;
+      // width: 250px;
+      // content: "";
+      // flex: auto;
     }
   }
+
   &-closeButtonDiv {
     display: flex;
     margin: 1rem 3.5rem;
